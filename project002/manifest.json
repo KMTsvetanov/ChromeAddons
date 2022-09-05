@@ -1,0 +1,32 @@
+{
+  "name": "Permissions Onboarding",
+  "version": "0.01",
+  "description": "Open tab on install & ask for permission",
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "manifest_version": 3,
+  "icons": {
+    "16": "/images/icon16x16.png",
+    "32": "/images/icon32x32.png",
+    "48": "/images/icon48x48.png",
+    "128": "/images/icon128x128.png"
+  },
+  "background":{
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "/images/icon16x16.png",
+      "32": "/images/icon32x32.png",
+      "48": "/images/icon48x48.png",
+      "128": "/images/icon128x128.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ]
+}

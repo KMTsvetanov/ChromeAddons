@@ -1,0 +1,101 @@
+ARG PHP_VERSION=8.1.8
+FROM php:${PHP_VERSION}-fpm-alpine
+
+ENV workdir /vol
+
+WORKDIR ${workdir}
+
+RUN apk add --no-cache --virtual \
+        .phpize-deps $PHPIZE_DEPS \
+        libssl1.1 \
+        pkgconf \
+        wget \
+        zip \
+        libtool \
+        libzip-dev \
+        autoconf \ 
+        libjpeg-turbo-dev \ 
+        linux-headers >> /dev/null \
+        && docker-php-ext-enable opcache \
+        && docker-php-ext-install mysqli 
+
+RUN apk update && apk add --no-cache \
+    build-base shadow vim curl \
+    php8 \
+    php8-fpm \
+    php8-common \
+    php8-sqlite3 \
+    php8-xsl \
+    php8-cli \
+    php8-cgi \
+    php8-imap \
+    php8-curl \
+    php8-intl \
+    php8-pspell \
+    php8-tidy \
+    php8-mbstring \
+    php8-xml \
+    php8-openssl \
+    php8-json \
+    php8-phar \
+    php8-zip \
+    php8-gd \
+    php8-dom \
+    php8-session \
+    php8-zlib \
+    php8-gmp \
+    php8-sockets \
+    php8-bcmath \
+    rsync \
+    git \
+    screen \
+    mysql-client \
+    gmp-dev >> /dev/null \
+    nano
+
+# Add and Enable PHP-PDO Extenstions
+RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install gmp
+RUN docker-php-ext-install sockets bcmath
+
+#### Install PHP 8.1 couchbase SDK 4.0 ####
+RUN apk add --no-cache \
+    gcc \
+    g++ \
+    make \
+    cmake \
+    zlib-dev \
+    openssl \
+    libcouchbase-dev \
+    ;
+
+# COPY ./couchbase.ini $PHP_INI_DIR/conf.d/
+# RUN apk add libcouchbase
+# RUN apk add php8-pecl-couchbase
+
+# RUN pecl install https://packages.couchbase.com/clients/php/couchbase-3.2.2.tgz
+
+# RUN docker-php-ext-enable --ini-name couchbase.ini couchbase
+
+#### Opcache JIT setting ####
+#COPY ./opcache.ini $PHP_INI_DIR/conf.d/
+
+#### Install PHP Composer ####
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+#### Xdebug setting ####
+COPY ./xdebug.ini $PHP_INI_DIR/conf.d/
+RUN apk add --no-cache $PHPIZE_DEPS \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+#### Install MAIL SERVER Composer ####
+RUN apk add msmtp
+COPY ./msmtprc /etc/msmtprc
+RUN chmod 0644 /etc/msmtprc
+COPY ./msmtp.log /var/log/msmtp.log
+RUN chmod 0777 /var/log/msmtp.log
+COPY ./mail.ini $PHP_INI_DIR/conf.d/
+
+EXPOSE 9000
+CMD ["php-fpm"]

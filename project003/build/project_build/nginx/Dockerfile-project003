@@ -1,0 +1,8 @@
+ARG NGINX_VERSION=1.17.7-alpine
+FROM nginx:${NGINX_VERSION}
+
+COPY ./conf.d/project003-dev.conf /etc/nginx/conf.d/project003-dev.conf
+
+EXPOSE 80
+EXPOSE 443
+
