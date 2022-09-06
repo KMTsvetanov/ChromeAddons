@@ -1,5 +1,32 @@
 <?php
 
+$fileinput = "player_resolve.txt";
+$file = fopen($fileinput, "r");
+while(!feof($file)) {
+    $data = fgets($file);
+    $parts = explode('-----', $data);
+    $url = $parts[0];
+    $json = $parts[1];
+    $jsonDecode = json_decode($json, true);
+    $ttt = 'd';
+}
+/* Close the streams */
+fclose($file);
+
+die;
+
+$fileinput = "matchIds.txt";
+$file = fopen($fileinput, "r");
+while(!feof($file)) {
+    $data = fgets($file);
+    $matchId = trim($data);
+    $ttt = 'd';
+}
+/* Close the streams */
+fclose($file);
+// TODO KIRIL
+echo 'END';die;
+
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 

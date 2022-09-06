@@ -1,0 +1,34 @@
+html {
+    height: 1px;
+}
+
+body {
+    color: white;
+    background-color: black;
+}
+.center {
+    text-align: center;
+}
+#game_list, #game_wrapper {
+    float: left;
+}
+#game_wrapper {
+    height: 180px;
+    width: 300px;
+}
+#game_1, #game_2 {
+    float: left;
+    margin-right: 10px;
+    background-color: orange;
+    width: 60px;
+}
+
+#game_1:hover, #game_2:hover {
+    background-color: orangered;
+    cursor: pointer;
+}
+
+.tetrisCanvas {
+    box-shadow: 3px 3px 5px #a0a8aF;
+    outline: none;
+}
