@@ -174,8 +174,8 @@ foreach ($final as $matchId => $playersSwap) {
 foreach ($final as $matchId => $playersSwap) {
     $matchId = 1; // TODO KIRIL REMOVE
 //     Each lookup in `qualifiers`. As an example:
-//         kiki:-111111111;type:kickoff;opponenttimeofpossession:0.083333;status:ended
-//         grossyards:48;koko:-333333333;netyards:34
+//         kiki:-111111111;type:kickoff;koko:-111111111;opponenttimeofpossession:0.083333;status:ended
+//         grossyards:48;koko:-333333333;netyards:34;kiki:-333333333;
     $lookFor = [
         'kiki',
         'koko',
