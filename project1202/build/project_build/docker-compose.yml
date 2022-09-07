@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  project1202:
+    build:
+      context: ./php
+      dockerfile: Dockerfile-${APP_NAME}
+    container_name: ${APP_NAME}-php
+    restart: unless-stopped
+    volumes:
+        - ~/${MAINDIR}/Kiril/${PROJECTDIR}:/vol/${PROJECTDIR}
+        - sessions:/vol/sessions
+    networks:
+      - statsengineapi_default
+
+  project1202webserver:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile-${APP_NAME}
+    container_name: ${APP_NAME}-nginx
+    restart: unless-stopped
+    ports:
+        - "${APP_PORT}:80"
+    volumes:
+        - ~/${MAINDIR}/Kiril/${PROJECTDIR}:/vol/${PROJECTDIR}
+        - ./nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - statsengineapi_default
+
+volumes:
+    sessions:
+
+networks:
+  statsengineapi_default:
+    external: true
