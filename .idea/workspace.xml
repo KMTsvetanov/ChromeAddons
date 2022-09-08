@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05c60bae-5ecb-4020-842c-2aaba2ea9db1" name="Changes" comment="">
+    <list default="true" id="ec900ce1-b7a4-4172-b693-92cb395f6766" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Gameboy/images/icon128x128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gameboy/images/icon16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gameboy/images/icon32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gameboy/images/icon48x48.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5e9ea601-2170-4539-8ee7-b34fad752025.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5e9ea601-2170-4539-8ee7-b34fad752025/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5e9ea601-2170-4539-8ee7-b34fad752025/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5e9ea601-2170-4539-8ee7-b34fad752025/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5e9ea601-2170-4539-8ee7-b34fad752025/storage_v2/_src_/schema/sys.zb4BAA.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqlDataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project1202/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/project1202/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005.7z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/background.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/images/icon128x128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/images/icon16x16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/images/icon32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/images/icon48x48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/jquery.touchSwipe.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Gameboy/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/Gameboy/popup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/popup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Gameboy/popup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/Gameboy/popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project005/script.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,16 +43,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpServers">
-    <servers>
-      <server host="localhost" id="4dfbf895-da4e-499f-8538-3399e30f5111" name="localhost" use_path_mappings="true">
-        <path_mappings>
-          <mapping local-root="$PROJECT_DIR$" remote-root="/vol" />
-        </path_mappings>
-      </server>
-    </servers>
-  </component>
-  <component name="ProjectId" id="2EQi8ZgC5BqXQ4otq8wWIUU7Kfq" />
+  <component name="ProjectId" id="2ETOpGmLzU4mIF8fTfRtagFitOd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,32 +53,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Kiril.Tsvetanov/Desktop/Projects/GitLab/Kiril/project1202",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.php.debug.servers",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Kiril.Tsvetanov\Desktop\Projects\GitLab\Kiril\project1202" />
-      <recent name="C:\Users\Kiril.Tsvetanov\Desktop\Projects\GitLab\Kiril\ProjectSTAT1202" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="05c60bae-5ecb-4020-842c-2aaba2ea9db1" name="Changes" comment="" />
-      <created>1662534049921</created>
+      <changelist id="ec900ce1-b7a4-4172-b693-92cb395f6766" name="Changes" comment="" />
+      <created>1662616288862</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1662534049921</updated>
-      <workItem from="1662534051556" duration="24715000" />
+      <updated>1662616288862</updated>
+      <workItem from="1662616290249" duration="9038000" />
     </task>
     <servers />
   </component>
@@ -80,31 +81,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/project003/index.php</url>
-          <line>25</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/project003/index.php</url>
-          <line>16</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/project1202/index.php</url>
-          <line>218</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/project1202/index.php</url>
-          <line>183</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

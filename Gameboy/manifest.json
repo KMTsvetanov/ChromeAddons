@@ -1,7 +1,7 @@
 {
-  "name": "Fake work",
-  "version": "1",
-  "description": "Escape from work with games",
+  "name": "Gameboy",
+  "version": "1.0",
+  "description": "Small games to pass the time without switching tabs",
   "host_permissions": [],
   "manifest_version": 3,
   "icons": {
@@ -9,9 +9,6 @@
     "32": "/images/icon32x32.png",
     "48": "/images/icon48x48.png",
     "128": "/images/icon128x128.png"
-  },
-  "background":{
-    "service_worker": "background.js"
   },
   "action": {
     "default_popup": "popup.html",
@@ -23,9 +20,6 @@
     }
   },
   "permissions": [
-    "storage",
-    "activeTab",
-    "scripting",
-    "tabs"
+    "scripting"
   ]
 }

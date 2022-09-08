@@ -9,18 +9,26 @@ body {
 .center {
     text-align: center;
 }
+#game_list {
+    width: 100%;
+}
 #game_list, #game_wrapper {
     float: left;
 }
 #game_wrapper {
-    height: 180px;
+    height: 9px;
     width: 300px;
 }
-#game_1, #game_2 {
-    float: left;
+#game_1 {
     margin-right: 10px;
+    float: left;
+}
+#game_2 {
+    float: right;
+}
+#game_1, #game_2 {
     background-color: orange;
-    width: 60px;
+    width: calc(50% - 5px);
 }
 
 #game_1:hover, #game_2:hover {
@@ -29,6 +37,7 @@ body {
 }
 
 .tetrisCanvas {
-    box-shadow: 3px 3px 5px #a0a8aF;
     outline: none;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
