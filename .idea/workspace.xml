@@ -2,32 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec900ce1-b7a4-4172-b693-92cb395f6766" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Gameboy/images/icon128x128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gameboy/images/icon16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gameboy/images/icon32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gameboy/images/icon48x48.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5e9ea601-2170-4539-8ee7-b34fad752025.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5e9ea601-2170-4539-8ee7-b34fad752025/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5e9ea601-2170-4539-8ee7-b34fad752025/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5e9ea601-2170-4539-8ee7-b34fad752025/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5e9ea601-2170-4539-8ee7-b34fad752025/storage_v2/_src_/schema/sys.zb4BAA.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqlDataSources.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportFile/images/icon128x128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportFile/images/icon16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportFile/images/icon32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportFile/images/icon48x48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportFile/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportFile/popup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportFile/popup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportFile/popup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportFile/readJS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ImportFile/xlsx.full.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005.7z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/background.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/images/icon128x128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/images/icon16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/images/icon32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/images/icon48x48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/jquery.touchSwipe.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Gameboy/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/Gameboy/popup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/popup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Gameboy/popup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/Gameboy/popup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project005/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gameboy/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Gameboy/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gameboy/popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/Gameboy/popup.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +35,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kiril.Tsvetanov/Desktop/Projects/GitLab/Kiril&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Kiril.Tsvetanov\Desktop\Projects\GitLab\Kiril" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kiril.Tsvetanov\Desktop\Projects\GitLab\Kiril\Todo\js" />
+      <recent name="C:\Users\Kiril.Tsvetanov\Desktop\Projects\GitLab\Kiril\Todo" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,6 +62,8 @@
       <option name="presentableId" value="Default" />
       <updated>1662616288862</updated>
       <workItem from="1662616290249" duration="9038000" />
+      <workItem from="1662716898216" duration="2623000" />
+      <workItem from="1662722121806" duration="10395000" />
     </task>
     <servers />
   </component>
