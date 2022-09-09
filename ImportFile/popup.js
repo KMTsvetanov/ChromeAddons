@@ -15,11 +15,10 @@ function filePicked(oEvent) {
             let isSuccess = fileTypes.indexOf(extension) > -1;
             if (isSuccess) {
                 reader.onload = function (e) {
-                    var data = e.target.result;
+                    let data = e.target.result;
                     data = new Uint8Array(data);
-                    var workbook = XLSX.read(data, {type: 'array'});
-                    var result = {};
-                    console.log(data)
+                    let workbook = XLSX.read(data, {type: 'array'});
+                    let result = {};
                     workbook.SheetNames.forEach(function (sheetName) {
                         var roa = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {header: 1});
                         if (roa.length) result[sheetName] = roa;
@@ -31,14 +30,14 @@ function filePicked(oEvent) {
                     }
                 };
                 reader.readAsArrayBuffer(oFile);
+            } else {
+                alert('Wrong format!');
             }
         }
     }
 }
-
 function tableCreate(filename, data) {
     const tbl = document.createElement('table');
-    tbl.style.width = '500px';
     tbl.style.border = '1px solid black';
     let tabRows = data.length;
     let tableCol = data[0].length;
@@ -72,7 +71,6 @@ function tableCreate(filename, data) {
         }
     }
 
-    let newDiv = document.createElement("div");
     let newContent = document.createTextNode(filename);
     my_file_output.prepend(tbl);
     my_file_output.prepend(newContent);
@@ -88,4 +86,3 @@ fileChooser.addEventListener('change', function (evt) {
 
 document.body.appendChild(fileChooser);
 document.body.appendChild(my_file_output);
-fileChooser.click();

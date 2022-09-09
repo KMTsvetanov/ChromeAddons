@@ -1,7 +1,7 @@
 {
-  "name": "Gameboy",
+  "name": "Excel reader",
   "version": "1.0",
-  "description": "Small games to pass the time without switching tabs",
+  "description": "csv, ods, xlsx file reader",
   "host_permissions": [],
   "manifest_version": 3,
   "icons": {
