@@ -111,7 +111,6 @@ foreach ($concurrence as $matchId => $playersSwap) {
         if ($development) {
             $queryString = [
                 $qry->queryString => [
-                    'query' => $matchId,
                     'matchId' => $matchId,
                     'oldPlayedId' => $oldPlayedId,
                     'newPlayerId' => $newPlayerId,
