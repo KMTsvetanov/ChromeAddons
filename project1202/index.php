@@ -142,6 +142,8 @@ foreach ($concurrence as $matchId => $playersSwap) {
             $queryString = [
                 $qry->queryString => [
                     'matchId' => $matchId,
+                    'oldPlayedId' => $oldPlayedId,
+                    'newPlayerId' => $newPlayerId,
                     'oldPlayedIdLike1' => $oldPlayedIdLike1,
                     'oldPlayedIdLike2' => $oldPlayedIdLike2,
                 ]
@@ -170,6 +172,8 @@ foreach ($concurrence as $matchId => $playersSwap) {
             $queryString = [
                 $qry->queryString => [
                     'matchId' => $matchId,
+                    'oldPlayedId' => $oldPlayedId,
+                    'newPlayerId' => $newPlayerId,
                     'oldPlayedIdLike1' => $oldPlayedIdLike1,
                     'oldPlayedIdLike2' => $oldPlayedIdLike2,
                 ]
