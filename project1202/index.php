@@ -117,9 +117,8 @@ foreach ($concurrence as $matchId => $playersSwap) {
                 ]
             ];
             $return['query_string'][] = $queryString;
-        } else {
-            $qry->execute();
         }
+        $qry->execute();
     }
 }
 
