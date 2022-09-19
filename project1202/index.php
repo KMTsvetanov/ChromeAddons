@@ -103,7 +103,7 @@ if ($development) {
 // 5. Update `match_action` table field 'personId'
 foreach ($concurrence as $matchId => $playersSwap) {
     foreach ($playersSwap as $oldPlayedId => $newPlayerId) {
-        $sql = "UPDATE `match_action` SET `personId` = :newPlayerId WHERE (`matchId` = :matchId) and (`personId` = :oldPlayedId);";
+        $sql = "UPDATE `match_action` SET `personId` = :newPlayerId WHERE (`matchId` = :matchId) AND (`personId` = :oldPlayedId);";
         $qry = $con->prepare($sql);
         $qry->bindParam(':matchId', $matchId);
         $qry->bindParam(':oldPlayedId', $oldPlayedId);
@@ -127,7 +127,7 @@ foreach ($concurrence as $matchId => $playersSwap) {
 foreach ($concurrence as $matchId => $playersSwap) {
     foreach ($playersSwap as $oldPlayedId => $newPlayerId) {
         $sql = "UPDATE `match_action` SET `playersTeam1` = REPLACE(`playersTeam1`, :oldPlayedId, :newPlayerId) " .
-            "WHERE (`matchId` = :matchId) and (`playersTeam1` LIKE :oldPlayedIdLike1 OR `playersTeam1` LIKE :oldPlayedIdLike2)";
+            "WHERE (`matchId` = :matchId) AND (`playersTeam1` LIKE :oldPlayedIdLike1 OR `playersTeam1` LIKE :oldPlayedIdLike2)";
         $qry = $con->prepare($sql);
         $qry->bindParam(':matchId', $matchId);
         $qry->bindParam(':oldPlayedId', $oldPlayedId);
@@ -157,7 +157,7 @@ foreach ($concurrence as $matchId => $playersSwap) {
 foreach ($concurrence as $matchId => $playersSwap) {
     foreach ($playersSwap as $oldPlayedId => $newPlayerId) {
         $sql = "UPDATE `match_action` SET `playersTeam2` = REPLACE(`playersTeam2`, :oldPlayedId, :newPlayerId) " .
-            "WHERE (`matchId` = :matchId) and (`playersTeam2` LIKE :oldPlayedIdLike1 OR `playersTeam2` LIKE :oldPlayedIdLike2)";
+            "WHERE (`matchId` = :matchId) AND (`playersTeam2` LIKE :oldPlayedIdLike1 OR `playersTeam2` LIKE :oldPlayedIdLike2)";
         $qry = $con->prepare($sql);
         $qry->bindParam(':matchId', $matchId);
         $qry->bindParam(':oldPlayedId', $oldPlayedId);
@@ -195,7 +195,7 @@ foreach ($concurrence as $matchId => $playersSwap) {
     foreach ($qualifierKeys as $qualifierKey) {
         foreach ($playersSwap as $oldPlayedId => $newPlayerId) {
             $sql = "UPDATE `match_action` SET `qualifiers` = REPLACE(`qualifiers`, :oldPlayedIdLookup, :newPlayerIdLookup) " .
-                "WHERE (`matchId` = :matchId) and (`qualifiers` LIKE :oldPlayedIdLike1 OR `qualifiers` LIKE :oldPlayedIdLike2)";
+                "WHERE (`matchId` = :matchId) AND (`qualifiers` LIKE :oldPlayedIdLike1 OR `qualifiers` LIKE :oldPlayedIdLike2)";
             $qry = $con->prepare($sql);
 
             $qry->bindParam(':matchId', $matchId);
