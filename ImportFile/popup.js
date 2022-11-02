@@ -79,7 +79,7 @@ function tableCreate(filename, data) {
     searchField.className = "css-class-name";
     searchField.placeholder = "Search field";
     searchField.addEventListener('input', function (evt) {
-        let filter = this.value;
+        let filter = this.value.toUpperCase();
         tr = tbl.getElementsByTagName('tr');
         for (i = 1; i < tr.length; i++) {
             tds = tr[i].getElementsByTagName("td");
