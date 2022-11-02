@@ -31,11 +31,12 @@ function filePicked(oEvent) {
                 };
                 reader.readAsArrayBuffer(oFile);
             } else {
-                alert('Wrong format!');
+                alert('Wrong or not implemented format! Send a comment to add it');
             }
         }
     }
 }
+
 function tableCreate(filename, data) {
     const tbl = document.createElement('table');
     tbl.style.border = '1px solid black';
@@ -72,8 +73,34 @@ function tableCreate(filename, data) {
     }
 
     let newContent = document.createTextNode(filename);
+
+    let searchField = document.createElement('input');
+    searchField.type = "text";
+    searchField.className = "css-class-name";
+    searchField.placeholder = "Search field";
+    searchField.addEventListener('input', function (evt) {
+        let filter = this.value;
+        tr = tbl.getElementsByTagName('tr');
+        for (i = 1; i < tr.length; i++) {
+            tds = tr[i].getElementsByTagName("td");
+            let searchMatch = false;
+            for (x = 0; x < tds.length; x++) {
+                searchValue = tds[x].textContent || tds[x].innerText;
+                if (searchValue.toUpperCase().indexOf(filter) > -1) {
+                    searchMatch = true;
+                }
+            }
+            if (searchMatch) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    });
+
     my_file_output.prepend(tbl);
     my_file_output.prepend(newContent);
+    my_file_output.prepend(searchField);
 }
 
 let my_file_output = document.createElement("div"), scoreElement, refreshIntervalId, ctx, gameState, canvas;
