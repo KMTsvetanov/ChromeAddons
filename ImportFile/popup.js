@@ -2,15 +2,11 @@ function filePicked(oEvent) {
     let files = oEvent.target.files;
     for (const key in files) {
         if (files.hasOwnProperty(key)) {
-            // tableCreate(files[key]);
-
             var oFile = files[key];
             var sFilename = oFile.name;
-
             var reader = new FileReader();
-
             reader.fileName = sFilename
-            let fileTypes = ['csv', 'ods', 'xlsx'];
+            let fileTypes = ['csv', 'ods', 'xlsx', 'xls'];
             let extension = sFilename.split('.').pop().toLowerCase();
             let isSuccess = fileTypes.indexOf(extension) > -1;
             if (isSuccess) {
@@ -51,13 +47,10 @@ function tableCreate(filename, data) {
                 let th = document.createElement('th');
                 th.innerHTML = datum;
                 th.addEventListener('click', (() => {
-
                     let getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
-
                     let comparer = (idx, asc) => (a, b) => ((v1, v2) =>
                             v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
                     )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-
                     const table = th.closest('table');
                     Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
                         .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
@@ -73,7 +66,6 @@ function tableCreate(filename, data) {
     }
 
     let newContent = document.createTextNode(filename);
-
     let searchField = document.createElement('input');
     searchField.type = "text";
     searchField.className = "css-class-name";
@@ -97,7 +89,6 @@ function tableCreate(filename, data) {
             }
         }
     });
-
     my_file_output.prepend(tbl);
     my_file_output.prepend(newContent);
     my_file_output.prepend(searchField);

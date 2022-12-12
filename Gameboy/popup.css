@@ -6,38 +6,40 @@ body {
     color: white;
     background-color: black;
 }
+
 .center {
     text-align: center;
 }
+
 #game_list {
-    width: 100%;
+    margin-top: 2px;
+    height: 25px;
+    width: 500px;
 }
+
 #game_list, #game_wrapper {
     float: left;
 }
-#game_wrapper {
-    height: 9px;
-    width: 300px;
-}
-#game_1 {
+
+#game_1, #game_2, #game_3 {
     margin-right: 10px;
     float: left;
 }
-#game_2 {
-    float: right;
-}
-#game_1, #game_2 {
-    background-color: orange;
-    width: calc(50% - 5px);
+
+#game_4 {
+    float: left;
 }
 
-#game_1:hover, #game_2:hover {
+#game_list > div {
+    background-color: orange;
+    width: 117px;
+}
+
+#game_list > div:hover {
     background-color: orangered;
     cursor: pointer;
 }
 
 .tetrisCanvas {
     outline: none;
-    margin-top: 8px;
-    margin-bottom: 8px;
 }

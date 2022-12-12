@@ -1,6 +1,6 @@
 {
   "name": "Gameboy",
-  "version": "1.0",
+  "version": "1.2",
   "description": "Small games to pass the time without switching tabs",
   "host_permissions": [],
   "manifest_version": 3,

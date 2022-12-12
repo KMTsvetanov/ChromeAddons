@@ -1,4 +1,4 @@
-let gameWrapper = document.getElementById("game_wrapper"), scoreElement, refreshIntervalId, ctx, gameState, canvas;
+let gameWrapper = document.getElementById("game_wrapper"), scoreElement, refreshIntervalId, ctx, gameState, canvas, players;
 
 function removeAllChildNodes(a) {
     for (; a.firstChild;) a.removeChild(a.firstChild)
@@ -20,28 +20,68 @@ class RectCollider {
 
 function checkCollision(a) {
     let d = new RectCollider(a.rectPosX, a.rectPosY, 10, 10);
+    let d2 = new RectCollider(a.rectPosX2, a.rectPosY2, 10, 10);
+    let tmp = 1;
+    if (players === 2) {
+        tmp = 2;
+    }
     for (let c = 0; c < a.enemies.length; ++c) {
         let e = new RectCollider(a.enemies[c].x, a.enemies[c].y, 10, 10);
-        if (d.isColliding(e)) return !0
-    }
-    for (let b = 0; b < a.friends.length; ++b) {
-        let f = new RectCollider(a.friends[b].x, a.friends[b].y, 5, 5);
-        d.isColliding(f) && (a.playerSpeed *= 1.05, a.friends.splice(b, 1))
+        if (d.isColliding(e)) {
+            players = 1;
+            return !0;
+        }
+        if (tmp === 2) {
+            if (d2.isColliding(e)) {
+                players = 1;
+                return !0;
+            }
+        }
     }
 }
 
 function update() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height), gameState.enemyTimeout -= 1, 0 == gameState.enemyTimeout && (gameState.enemyTimeout = Math.floor(gameState.enemyTimeoutInit), gameState.enemies.push({
-        x: canvas.width,
-        y: random(canvas.height),
-        velocity: gameState.enemySpeed
-    }), gameState.enemySpeed *= 1.001, gameState.enemyTimeoutInit = .999 * gameState.enemyTimeoutInit), ctx.fillStyle = "#FF0000", gameState.rectPosX += gameState.rectVelocity.x, gameState.rectPosY += gameState.rectVelocity.y, gameState.rectPosX > canvas.width - 10 && (gameState.rectPosX = canvas.width - 10, gameState.rectVelocity.x = 0), gameState.rectPosX < 0 && (gameState.rectPosX = 0, gameState.rectVelocity.x = 0), gameState.rectPosY < 0 && (gameState.rectPosY = 0, gameState.rectVelocity.y = 0), gameState.rectPosY > canvas.height - 10 && (gameState.rectPosY = canvas.height - 10, gameState.rectVelocity.y = 0), ctx.fillRect(gameState.rectPosX, gameState.rectPosY, 10, 10), ctx.fillStyle = "#0000FF";
+    ctx.clearRect(0, 0, canvas.width, canvas.height),
+        gameState.enemyTimeout -= 1, 0 == gameState.enemyTimeout && (
+        gameState.enemyTimeout = Math.floor(gameState.enemyTimeoutInit),
+            gameState.enemies.push({
+                x: canvas.width,
+                y: random(canvas.height),
+                velocity: gameState.enemySpeed
+            }),
+                gameState.enemySpeed *= 1.001,
+                gameState.enemyTimeoutInit = .999 * gameState.enemyTimeoutInit
+        ),
+        ctx.fillStyle = "#FF0000",
+        gameState.rectPosX += gameState.rectVelocity.x,
+        gameState.rectPosY += gameState.rectVelocity.y,
+    gameState.rectPosX > canvas.width - 10 && (gameState.rectPosX = canvas.width - 10, gameState.rectVelocity.x = 0),
+    gameState.rectPosX < 0 && (gameState.rectPosX = 0, gameState.rectVelocity.x = 0),
+    gameState.rectPosY < 0 && (gameState.rectPosY = 0, gameState.rectVelocity.y = 0),
+    gameState.rectPosY > canvas.height - 10 && (gameState.rectPosY = canvas.height - 10, gameState.rectVelocity.y = 0),
+        ctx.fillRect(gameState.rectPosX, gameState.rectPosY, 10, 10);
+
+        if (players === 2) {
+            ctx.fillStyle = "#059250",
+                gameState.rectPosX2 += gameState.rectVelocity.x2,
+                gameState.rectPosY2 += gameState.rectVelocity.y2,
+            gameState.rectPosX2 > canvas.width - 10 && (gameState.rectPosX2 = canvas.width - 10, gameState.rectVelocity.x2 = 0),
+            gameState.rectPosX2 < 0 && (gameState.rectPosX2 = 0, gameState.rectVelocity.x2 = 0),
+            gameState.rectPosY2 < 0 && (gameState.rectPosY2 = 0, gameState.rectVelocity.y2 = 0),
+            gameState.rectPosY2 > canvas.height - 10 && (gameState.rectPosY2 = canvas.height - 10, gameState.rectVelocity.y2 = 0),
+                ctx.fillRect(gameState.rectPosX2, gameState.rectPosY2, 10, 10);
+        }
+        ctx.fillStyle = "#0000FF";
+
     for (let a = 0; a < gameState.enemies.length; ++a) gameState.enemies[a].x -= gameState.enemies[a].velocity, ctx.fillRect(gameState.enemies[a].x, gameState.enemies[a].y, 10, 10);
     for (let b = 0; b < gameState.enemies.length; ++b) gameState.enemies[b].x < -10 && (gameState.enemies.splice(b, 1), gameState.score++);
-    document.getElementById("score").innerHTML = "score: " + gameState.score, gameState.score % 10 == 0 && gameState.score > 0 && gameState.score > gameState.scoreThreshold && gameState.level > 14 && (gameState.level -= 2, gameState.scoreThreshold = gameState.score, gameState.enemyTimeout = gameState.level, gameState.enemyTimeoutInit = gameState.level, console.log(gameState.enemyTimeout), console.log(gameState.enemyTimeoutInit)), !0 == checkCollision(gameState) && (gameState = {
+    document.getElementById("score").innerHTML = "score: " + gameState.score, gameState.score % 10 == 0 && gameState.score > 0 && gameState.score > gameState.scoreThreshold && gameState.level > 14 && (gameState.level -= 2, gameState.scoreThreshold = gameState.score, gameState.enemyTimeout = gameState.level, gameState.enemyTimeoutInit = gameState.level, console.log(gameState.enemyTimeout), console.log(gameState.enemyTimeoutInit)),
+    !0 == checkCollision(gameState) && (gameState = {
         rectPosX: 10,
         rectPosY: canvas.height / 2 - 10,
-        rectVelocity: {x: 0, y: 0},
+        rectPosX2: 10,
+        rectPosY2: canvas.height / 2 - 10,
+        rectVelocity: {x: 0, y: 0, x2: 0, y2: 0},
         playerSpeed: 1,
         enemyTimeout: 60,
         enemyTimeoutInit: 60,
@@ -54,12 +94,69 @@ function update() {
     })
 }
 
+var $Osc = {
+    hover: function(event) {
+        event.target.style.backgroundColor = "orangered";
+        event.target.style.cursor = "pointer";
+    },
+    out: function(event) {
+        event.target.style.backgroundColor = "orange";
+        event.target.style.cursor = "mouse";
+    }
+
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+    let exposure = document.getElementById("exposure");
     document.getElementById("game_1").addEventListener("click", function () {
-        gameWrapper.style.width = "300px", gameWrapper.style.height = "200px", removeAllChildNodes(gameWrapper), (scoreElement = document.createElement("p")).setAttribute("id", "score"), (canvas = document.createElement("canvas")).setAttribute("id", "canvas-top"), canvas.style.marginBottom = "8px", gameWrapper.appendChild(scoreElement), gameWrapper.appendChild(canvas), ctx = canvas.getContext("2d"), gameState = {
+        removeAllChildNodes(exposure);
+
+        let exposure2 = document.createElement("div");
+        let btn = document.createElement("button");
+        let tag = document.createElement("p")
+        let text = document.createTextNode("WASD and arrow keys");
+        tag.appendChild(text);
+        btn.innerHTML = "Player 2";
+        btn.style.margin = "20px 10px 10px 10px";
+        btn.style.backgroundColor = "orange";
+        players = 1;
+        btn.addEventListener("click", function () {
+            players = 2;
+        });
+        btn.addEventListener("mouseover", $Osc.hover, false);
+        btn.addEventListener("mouseout", $Osc.out, false);
+
+        exposure.appendChild(btn);
+        exposure.appendChild(tag);
+
+
+        exposure.style.border = "1px solid white";
+        exposure.style.backgroundImage="";
+        exposure.style.width = '196px';
+        exposure.style.height = '188px';
+        exposure.style.float = 'left';
+        exposure.style.marginLeft = "0px";
+        exposure.style.backgroundSize = 'cover';
+
+        exposure2.style.border = "1px solid white";
+        exposure2.style.backgroundImage="url(images/coming_soon.png)";
+        exposure2.style.width = '196px';
+        exposure2.style.height = '96px';
+        exposure2.style.float = 'left';
+        exposure2.style.marginLeft = "0px";
+        exposure2.style.backgroundSize = 'contain';
+        exposure.appendChild(exposure2);
+
+        gameWrapper.style.backgroundImage="";
+        gameWrapper.style.backgroundSize = '';
+        gameWrapper.style.width = "300px", gameWrapper.style.height = "200px", removeAllChildNodes(gameWrapper), (scoreElement = document.createElement("p")).setAttribute("id", "score"), (canvas = document.createElement("canvas")).setAttribute("id", "canvas-top"), canvas.style.marginBottom = "8px", gameWrapper.appendChild(scoreElement), gameWrapper.appendChild(canvas),
+            ctx = canvas.getContext("2d"),
+            gameState = {
             rectPosX: 10,
             rectPosY: canvas.height / 2 - 10,
-            rectVelocity: {x: 0, y: 0},
+            rectPosX2: 10,
+            rectPosY2: canvas.height / 2 - 10,
+            rectVelocity: {x: 0, y: 0, x2: 0, y2: 0},
             playerSpeed: 1,
             enemyTimeout: 60,
             enemyTimeoutInit: 60,
@@ -70,18 +167,100 @@ document.addEventListener("DOMContentLoaded", function () {
             level: 60,
             scoreThreshold: 0
         }, "not set" !== refreshIntervalId && void 0 !== refreshIntervalId && (clearInterval(refreshIntervalId), refreshIntervalId = "not set", document.removeEventListener("keydown", function (a) {
-            39 == a.keyCode && (gameState.rectVelocity.x = gameState.playerSpeed), 37 == a.keyCode && (gameState.rectVelocity.x = -gameState.playerSpeed), 40 == a.keyCode && (gameState.rectVelocity.y = gameState.playerSpeed), 38 == a.keyCode && (gameState.rectVelocity.y = -gameState.playerSpeed)
+            39 == a.keyCode && (gameState.rectVelocity.x = gameState.playerSpeed),      // >
+            37 == a.keyCode && (gameState.rectVelocity.x = -gameState.playerSpeed),     // <
+            40 == a.keyCode && (gameState.rectVelocity.y = gameState.playerSpeed),      // v
+            38 == a.keyCode && (gameState.rectVelocity.y = -gameState.playerSpeed)     // ^
+
+            68 == a.keyCode && (gameState.rectVelocity.x2 = gameState.playerSpeed),      // d
+            65 == a.keyCode && (gameState.rectVelocity.x2 = -gameState.playerSpeed),     // s
+            83 == a.keyCode && (gameState.rectVelocity.y2 = gameState.playerSpeed),      // a
+            87 == a.keyCode && (gameState.rectVelocity.y2 = -gameState.playerSpeed)      // w
         })), refreshIntervalId = setInterval(update, 20), document.addEventListener("keydown", function (a) {
-            39 == a.keyCode && (gameState.rectVelocity.x = gameState.playerSpeed), 37 == a.keyCode && (gameState.rectVelocity.x = -gameState.playerSpeed), 40 == a.keyCode && (gameState.rectVelocity.y = gameState.playerSpeed), 38 == a.keyCode && (gameState.rectVelocity.y = -gameState.playerSpeed)
+            39 == a.keyCode && (gameState.rectVelocity.x = gameState.playerSpeed),      // >
+            37 == a.keyCode && (gameState.rectVelocity.x = -gameState.playerSpeed),     // <
+            40 == a.keyCode && (gameState.rectVelocity.y = gameState.playerSpeed),      // v
+            38 == a.keyCode && (gameState.rectVelocity.y = -gameState.playerSpeed)     // ^
+
+            68 == a.keyCode && (gameState.rectVelocity.x2 = gameState.playerSpeed),      // d
+            65 == a.keyCode && (gameState.rectVelocity.x2 = -gameState.playerSpeed),     // s
+            83 == a.keyCode && (gameState.rectVelocity.y2 = gameState.playerSpeed),      // a
+            87 == a.keyCode && (gameState.rectVelocity.y2 = -gameState.playerSpeed)      // w
         })
     }), document.getElementById("game_2").addEventListener("click", function () {
+
+        removeAllChildNodes(exposure);
+
+        exposure.style.border = "1px solid white";
+        exposure.style.backgroundImage="url(images/coming_soon.png)";
+        exposure.style.width = '74px';
+        exposure.style.height = '406px';
+        exposure.style.float = 'left';
+        exposure.style.marginLeft = "10px";
+        exposure.style.backgroundSize = 'contain';
+
+        gameWrapper.style.width = "412px";
+        gameWrapper.style.height = "416px";
+        gameWrapper.style.backgroundImage="";
+        gameWrapper.style.backgroundSize = '';
+
         removeAllChildNodes(gameWrapper), "not set" !== refreshIntervalId && void 0 !== refreshIntervalId && (clearInterval(refreshIntervalId), refreshIntervalId = "not set", document.removeEventListener("keydown", function (a) {
             39 == a.keyCode && (gameState.rectVelocity.x = gameState.playerSpeed), 37 == a.keyCode && (gameState.rectVelocity.x = -gameState.playerSpeed), 40 == a.keyCode && (gameState.rectVelocity.y = gameState.playerSpeed), 38 == a.keyCode && (gameState.rectVelocity.y = -gameState.playerSpeed)
-        })), gameWrapper.style.width = "412px", canvasTetris(gameWrapper)
+        })), gameWrapper.style.width = "412px", gameTwo(gameWrapper)
+    }), document.getElementById("game_3").addEventListener("click", function () {
+
+        removeAllChildNodes(exposure);
+
+        exposure.style.border = "1px solid white";
+        exposure.style.backgroundImage="url(images/coming_soon.png)";
+        exposure.style.width = '74px';
+        exposure.style.height = '406px';
+        exposure.style.float = 'left';
+        exposure.style.marginLeft = "10px";
+        exposure.style.backgroundSize = 'contain';
+
+        removeAllChildNodes(gameWrapper), "not set" !== refreshIntervalId && void 0 !== refreshIntervalId && (clearInterval(refreshIntervalId), refreshIntervalId = "not set", document.removeEventListener("keydown", function (a) {
+            39 == a.keyCode && (gameState.rectVelocity.x = gameState.playerSpeed), 37 == a.keyCode && (gameState.rectVelocity.x = -gameState.playerSpeed), 40 == a.keyCode && (gameState.rectVelocity.y = gameState.playerSpeed), 38 == a.keyCode && (gameState.rectVelocity.y = -gameState.playerSpeed)
+        })),
+            gameWrapper.style.width = "412px",
+            gameWrapper.style.height = "416px",
+            gameWrapper.style.backgroundImage="url(images/coming_soon.png)";
+        gameWrapper.style.backgroundSize = 'cover';
+
+        gameThree(gameWrapper)
+    }), document.getElementById("game_4").addEventListener("click", function () {
+
+        removeAllChildNodes(exposure);
+
+        exposure.style.border = "1px solid white";
+        exposure.style.backgroundImage="url(images/coming_soon.png)";
+        exposure.style.width = '74px';
+        exposure.style.height = '406px';
+        exposure.style.float = 'left';
+        exposure.style.marginLeft = "10px";
+        exposure.style.backgroundSize = 'contain';
+
+        removeAllChildNodes(gameWrapper), "not set" !== refreshIntervalId && void 0 !== refreshIntervalId && (clearInterval(refreshIntervalId), refreshIntervalId = "not set", document.removeEventListener("keydown", function (a) {
+            39 == a.keyCode && (gameState.rectVelocity.x = gameState.playerSpeed), 37 == a.keyCode && (gameState.rectVelocity.x = -gameState.playerSpeed), 40 == a.keyCode && (gameState.rectVelocity.y = gameState.playerSpeed), 38 == a.keyCode && (gameState.rectVelocity.y = -gameState.playerSpeed)
+        })),
+            gameWrapper.style.width = "412px",
+            gameWrapper.style.height = "416px",
+            gameWrapper.style.backgroundImage="url(images/coming_soon.png)";
+        gameWrapper.style.backgroundSize = 'cover';
+
+        gameFour(gameWrapper)
     })
 });
 
-var canvasTetris = function (d) {
+var gameFour = function (d) {
+
+}
+
+var gameThree = function (d) {
+
+}
+
+var gameTwo = function (d) {
     var c = {node: null, context: null, width: 0, height: 0, blockSide: 0};
     c.drawBackground = function () {
         this.context.fillStyle = "#f8f8ff", this.context.strokeStyle = "#696969", this.context.fillRect(0, 0, this.width, this.height), this.context.lineWidth = 8, this.context.strokeRect(0, 0, this.width, this.height), this.context.lineWidth = 4, this.context.beginPath(), this.context.moveTo(256, 0), this.context.lineTo(256, this.height), this.context.stroke(), this.context.closePath(), this.context.fillStyle = "#696969", this.context.fillText("SCORE:", 298, 75), this.context.fillText(a.score.amount, 330 - a.score.halfWidth, 125), this.context.fillText("NEXT:", 308, 220), this.context.lineWidth = 2, this.context.strokeRect(283, 255, 102, 102), this.context.strokeStyle = "#f8f8ff"
